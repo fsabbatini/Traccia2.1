@@ -14,7 +14,7 @@ def init_faker():
     except Exception as e:
         print(f"Errore durante l'inizializzazione di Faker: {e}")
 
-# Funzione per generare una lista di dizionari con i dati degli utenti
+# Funzione per generare una lista di n (definiti in constants.py) dizionari con i dati degli utenti
 def generate_user_data(fake_data, num_users):
     try:
         user_data = []
@@ -44,8 +44,8 @@ def main():
         # Inizializza Faker con la localizzazione
         fake_data = init_faker()
 
-        # Genera i dati casuali di n. 10 utenti
-        user_data = generate_user_data(fake_data, constants.ROW_NUMBERS)
+        # Genera i dati casuali di n utenti definiti in constants.py
+        user_data = generate_user_data(fake_data, constants.HOW_MANY_USERS)
 
         # Salva i dati in un file Excel
         save_to_excel(user_data)
