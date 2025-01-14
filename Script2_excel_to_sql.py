@@ -85,7 +85,7 @@ def main():
         conn.commit()
 
         # Verifica i dati inseriti
-        print("\nDati nel database:")
+        print("\nDati presenti nel database:")
         leggi_e_stampa_dati(cursor)
 
     except Exception as e:
@@ -100,6 +100,6 @@ def main():
     # Conferma che i dati sono stati inseriti correttamente
     print("\nDati inseriti nel database SQL \"" + str(constants.DB_FILE_NAME) + "\" con successo!")
 
-# Esegui il programma
+# Esegui il main program solo se lo script è stato eseguito direttamente e non importato come modulo per eseguire le altre funzioni contenuto nello script 
 if __name__ == "__main__":
     main()

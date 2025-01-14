@@ -6,14 +6,13 @@ import constants
 import pandas   # libreria per la gestione dei file excel
 from faker import Faker # libreria per la creazione di dati casuali
 
-# Funzione per inizializzare l'oggetto Faker con la localizzazione da constants
+# Funzione per inizializzare l'oggetto Faker con la localizzazione definita in constants
 def init_faker():
     try:
         fake_data = Faker(constants.FAKER_LOCALIZATION)
         return fake_data
     except Exception as e:
         print(f"Errore durante l'inizializzazione di Faker: {e}")
-        raise  # Rilancia l'eccezione per interrompere l'esecuzione se necessario
 
 # Funzione per generare una lista di dizionari con i dati degli utenti
 def generate_user_data(fake_data, num_users):
@@ -30,38 +29,32 @@ def generate_user_data(fake_data, num_users):
         return user_data
     except Exception as e:
         print(f"Errore durante la generazione dei dati degli utenti: {e}")
-        raise  # Rilancia l'eccezione per interrompere l'esecuzione se necessario
 
 # Funzione per creare il DataFrame e salvarlo in un file Excel
 def save_to_excel(user_data):
     try:
         df = pandas.DataFrame(user_data)
         df.to_excel(constants.EXCEL_FILE_NAME, index=False)
-    except FileNotFoundError as fnf_error:
-        print(f"Errore nel salvataggio del file Excel: {fnf_error}")
-        raise  # Rilancia l'eccezione per interrompere l'esecuzione se necessario
     except Exception as e:
         print(f"Errore durante il salvataggio del file Excel: {e}")
-        raise  # Rilancia l'eccezione per interrompere l'esecuzione se necessario
 
-# Funzione principale per eseguire l'intero processo
+# Funzione principale (Main program) 
 def main():
     try:
-        # Inizializza Faker
+        # Inizializza Faker con la localizzazione
         fake_data = init_faker()
 
-        # Genera i dati degli utenti
+        # Genera i dati casuali di n. 10 utenti
         user_data = generate_user_data(fake_data, constants.ROW_NUMBERS)
 
         # Salva i dati in un file Excel
         save_to_excel(user_data)
 
-        print()
-        print(f"File Excel \"{constants.EXCEL_FILE_NAME}\" creato con successo!")
+        print(f"\nFile Excel \"{constants.EXCEL_FILE_NAME}\" creato con successo, eseguire lo script successivo")
     
     except Exception as e:
         print(f"Si è verificato un errore durante l'esecuzione del programma: {e}")
 
-# Esegui il programma
+# Esegui il main program solo se lo script è stato eseguito direttamente e non importato come modulo per eseguire le altre funzioni contenuto nello script 
 if __name__ == "__main__":
     main()
