@@ -29,7 +29,7 @@ def crea_connessione_db(db_name):
 def crea_tabella(cursor):
     try:
         cursor.execute('''
-        CREATE TABLE IF NOT EXISTS canditati (
+        CREATE TABLE canditati (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT,
             cognome TEXT,
