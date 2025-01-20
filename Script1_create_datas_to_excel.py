@@ -5,6 +5,9 @@ import constants
 # Importa le librerie
 import pandas   # libreria per la gestione dei file excel
 from faker import Faker # libreria per la creazione di dati casuali
+import random   # libreria per la generazione casuale di numeri
+import string   # libreria per la gestione delle stringhe
+
 
 # Funzione per inizializzare l'oggetto Faker con la localizzazione definita in constants
 def init_faker():
@@ -23,7 +26,8 @@ def generate_user_data(fake_data, num_users):
                 "Nome": fake_data.first_name(),
                 "Cognome": fake_data.last_name(),
                 "Email": fake_data.email(),
-                "Telefono": fake_data.phone_number()
+                "Telefono": fake_data.phone_number(),
+                "Identificativo": ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
             }
             user_data.append(user)
         return user_data

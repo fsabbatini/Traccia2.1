@@ -34,7 +34,8 @@ def crea_tabella(cursor):
             nome TEXT,
             cognome TEXT,
             email TEXT,
-            telefono TEXT
+            telefono TEXT,
+            identificativo TEXT
         )
         ''')
     except sqlite3.Error as e:
@@ -45,9 +46,9 @@ def inserisci_dati(cursor, df):
     try:
         for _, row in df.iterrows():
             cursor.execute('''
-            INSERT INTO canditati (nome, cognome, email, telefono) 
-            VALUES (?, ?, ?, ?)
-            ''', (row['Nome'], row['Cognome'], row['Email'], row['Telefono']))
+            INSERT INTO canditati (nome, cognome, email, telefono, identificativo) 
+            VALUES (?, ?, ?, ?, ?)
+            ''', (row['Nome'], row['Cognome'], row['Email'], row['Telefono'], row['Identificativo']))
     except sqlite3.Error as e:
         print(f"Errore nell'inserimento dei dati: {e}")
 
