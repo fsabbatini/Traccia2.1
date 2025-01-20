@@ -64,10 +64,12 @@ def leggi_e_stampa_dati(cursor):
 # Funzione principale per eseguire tutto il processo
 def main():
     try:
-        # Legge i dati dal file Excel
+        # Legge e stampa i dati dal file Excel creato dalla Script1
         df = leggi_dati_excel(constants.EXCEL_FILE_NAME)
         if df is None:
             return  # Esce dalla funzione se non è stato possibile caricare il file Excel
+        else:
+            print(df.head(constants.HOW_MANY_USERS))
 
         # Crea una connessione al database
         conn = crea_connessione_db(constants.DB_FILE_NAME)
