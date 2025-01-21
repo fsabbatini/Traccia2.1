@@ -56,8 +56,15 @@ def inserisci_dati(cursor, df):
 def leggi_e_stampa_dati(cursor):
     try:
         cursor.execute("SELECT * FROM canditati")
-        for row in cursor.fetchall():
-            print(row)
+        columns = ['','Nome', 'Cognome', 'Email', 'Telefono', 'Identificativo']
+        #for row in cursor.fetchall():
+            #print(row)
+            #print(f"{row[0]-1:<2} {row[1]:<14} {row[2]} {row[3]} {row[4]}")
+        df = pandas.DataFrame(cursor.fetchall(), columns=columns)
+            # Stampa il DataFrame
+        df = df.drop('', axis=1)
+        print(df)
+            
     except sqlite3.Error as e:
         print(f"Errore nella lettura dei dati: {e}")
 
@@ -69,6 +76,7 @@ def main():
         if df is None:
             return  # Esce dalla funzione se non è stato possibile caricare il file Excel
         else:
+            print("\nDati presenti nel file excel:")
             print(df.head(constants.HOW_MANY_USERS))
 
         # Crea una connessione al database
