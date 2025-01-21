@@ -1,8 +1,13 @@
+# INIZIO SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
+# Importa il file di configurazione parametri constants.py
 import constants
-import sqlite3
-import pandas
 
+# Importa le librerie
+import sqlite3  # libreria per la gestione del database SQLite
+import pandas   # libreria per la gestione dei file excel
+# FINE SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
 
+# Funzione per leggere i dati dal file Excel
 def leggi_dati_excel(file_name):
         try:
             df = pandas.read_excel(file_name)
@@ -11,6 +16,7 @@ def leggi_dati_excel(file_name):
             print(f"Errore nel leggere il file Excel: {e}")
             return None
 
+# Questa classe contiene metodi per la gestione del database
 class DatabaseManager:
     def __init__(self, db_name):
         self.conn = self.crea_connessione_db(db_name)
@@ -63,6 +69,7 @@ class DatabaseManager:
         if self.conn:
             self.conn.close()
 
+# Questa funzione (main program) gestisce il flusso dell'intero script2
 def main():
     try:
         # Legge e stampa i dati dal file Excel creato dalla Script1
@@ -102,5 +109,6 @@ def main():
     # Conferma che i dati sono stati inseriti correttamente
     print("\nDati inseriti nel database SQL \"" + str(constants.DB_FILE_NAME) + "\" con successo!")
 
+# Esegui il main program solo se lo script è stato eseguito direttamente e non importato come modulo per eseguire le altre funzioni contenuto nello script 
 if __name__ == "__main__":
     main()

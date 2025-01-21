@@ -1,9 +1,14 @@
-import constants
-import pandas
-from faker import Faker
-import random
-import string
+# INIZIO SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
+import constants    # Importa il file di configurazione parametri constants.py
 
+# Importa le librerie
+import pandas           # libreria per la gestione dei file excel
+from faker import Faker # libreria per la creazione di dati casuali
+import random           # libreria per la generazione casuale di numeri      
+import string           # libreria per la gestione delle stringhe
+# FINE SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
+
+# Questa classe contiene metodi per la generazione dei dati tramite Faker
 class UserDataGenerator:
     def __init__(self, localization):
         # Inizializza l'oggetto Faker con la localizzazione fornita
@@ -17,6 +22,7 @@ class UserDataGenerator:
         except Exception as e:
             print(f"Errore durante l'inizializzazione di Faker: {e}")
 
+    # Questo metodo restituisce un numero di righe pari a num_users  
     def generate_user_data(self, num_users):
         try:
             user_data = []
@@ -34,7 +40,7 @@ class UserDataGenerator:
         except Exception as e:
             print(f"Errore durante la generazione dei dati degli utenti: {e}")
 
-
+# Questa funzione salva i dati che riceve nel file dal nome "file_name"
 def save_to_excel(user_data, file_name):
         try:
             # Crea un DataFrame dai dati degli utenti e lo salva in un file Excel
@@ -43,6 +49,7 @@ def save_to_excel(user_data, file_name):
         except Exception as e:
             print(f"Errore durante il salvataggio del file Excel: {e}")
 
+# Questa funzione (main program) gestisce il flusso dell'intero script1
 def main():
     try:
         # Inizializza l'oggetto UserDataGenerator con la localizzazione
@@ -59,5 +66,6 @@ def main():
     except Exception as e:
         print(f"Si è verificato un errore durante l'esecuzione del programma: {e}")
 
+# Esegui il main program solo se lo script è stato eseguito direttamente e non importato come modulo per eseguire le altre funzioni contenuto nello script 
 if __name__ == "__main__":
     main()
