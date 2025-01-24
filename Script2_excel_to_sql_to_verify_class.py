@@ -1,6 +1,6 @@
 # INIZIO SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
 # Importa il file di configurazione parametri constants.py
-import constants
+import Parameters
 
 # Importa le librerie
 import sqlite3  # libreria per la gestione del database SQLite
@@ -73,15 +73,15 @@ class DatabaseManager:
 def main():
     try:
         # Legge e stampa i dati dal file Excel creato dalla Script1
-        df = leggi_dati_excel(constants.EXCEL_FILE_NAME)
+        df = leggi_dati_excel(Parameters.EXCEL_FILE_NAME)
         if df is None:
             return  # Esce dalla funzione se non è stato possibile caricare il file Excel
         else:
             print("\nDati presenti nel file excel:")
-            print(df.head(constants.HOW_MANY_USERS))
+            print(df.head(Parameters.HOW_MANY_USERS))
 
         # Crea una connessione al database
-        db_manager = DatabaseManager(constants.DB_FILE_NAME)
+        db_manager = DatabaseManager(Parameters.DB_FILE_NAME)
         if db_manager.conn is None:
             return  # Esce dalla funzione se non è stato possibile connettersi al database
 
@@ -107,8 +107,9 @@ def main():
             db_manager.chiudi_connessione()
 
     # Conferma che i dati sono stati inseriti correttamente
-    print("\nDati inseriti nel database SQL \"" + str(constants.DB_FILE_NAME) + "\" con successo!")
+    print("\nDati inseriti nel database SQL \"" + str(Parameters.DB_FILE_NAME) + "\" con successo!")
 
-# Esegui il main program solo se lo script è stato eseguito direttamente e non importato come modulo per eseguire le altre funzioni contenuto nello script 
+# Esegui il main program solo se lo script è stato eseguito direttamente
+# Nel caso in cui questo script sia importato come modulo sarà possibile eseguire le altre funzioni in esso contenuto 
 if __name__ == "__main__":
     main()

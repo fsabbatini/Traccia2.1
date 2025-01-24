@@ -1,5 +1,5 @@
 # INIZIO SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
-import constants    # Importa il file di configurazione parametri constants.py
+import Parameters    # Importa il file di configurazione parametri constants.py
 
 # Importa le librerie
 import pandas           # libreria per la gestione dei file excel
@@ -22,7 +22,7 @@ class UserDataGenerator:
         except Exception as e:
             print(f"Errore durante l'inizializzazione di Faker: {e}")
 
-    # Questo metodo restituisce un numero di righe pari a num_users  
+    # Questo metodo restituisce un numero di dati casuali per tanti utenti definiti num_users  
     def generate_user_data(self, num_users):
         try:
             user_data = []
@@ -53,19 +53,20 @@ def save_to_excel(user_data, file_name):
 def main():
     try:
         # Inizializza l'oggetto UserDataGenerator con la localizzazione
-        user_data_generator = UserDataGenerator(constants.FAKER_LOCALIZATION)
+        user_data_generator = UserDataGenerator(Parameters.FAKER_LOCALIZATION)
 
         # Genera dati casuali per il numero di utenti definito in constants.py
-        user_data = user_data_generator.generate_user_data(constants.HOW_MANY_USERS)
+        user_data = user_data_generator.generate_user_data(Parameters.HOW_MANY_USERS)
 
         # Salva i dati degli utenti in un file Excel
-        save_to_excel(user_data, constants.EXCEL_FILE_NAME)
+        save_to_excel(user_data, Parameters.EXCEL_FILE_NAME)
 
-        print(f"\nFile Excel \"{constants.EXCEL_FILE_NAME}\" creato con successo, eseguire lo script successivo")
+        print(f"\nFile Excel \"{Parameters.EXCEL_FILE_NAME}\" creato con successo, eseguire lo script successivo")
     
     except Exception as e:
         print(f"Si è verificato un errore durante l'esecuzione del programma: {e}")
 
-# Esegui il main program solo se lo script è stato eseguito direttamente e non importato come modulo per eseguire le altre funzioni contenuto nello script 
+# Esegui il main program solo se lo script è stato eseguito direttamente
+# Nel caso in cui questo script sia importato come modulo sarà possibile eseguire le altre funzioni in esso contenuto 
 if __name__ == "__main__":
     main()
