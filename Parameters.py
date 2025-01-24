@@ -1,4 +1,4 @@
-### CONSTANTS ###
+### PARAMETERS ###
 # questo file contiene alcuni parametri di configurazione per eseguire lo script1 e lo script2
 
 # nomi dei file utilizzati dagli script

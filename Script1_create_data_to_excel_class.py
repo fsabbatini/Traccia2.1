@@ -3,9 +3,9 @@ import Parameters    # Importa il file di configurazione parametri constants.py
 
 # Importa le librerie
 import pandas           # libreria per la gestione dei file excel
-from faker import Faker # libreria per la creazione di dati casuali
-import random           # libreria per la generazione casuale di numeri      
+from faker import Faker # libreria per la creazione di dati casuali    
 import string           # libreria per la gestione delle stringhe
+import uuid             # libreria per la generazione di codici identificatori univoci universali 
 # FINE SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
 
 # Questa classe contiene metodi per la generazione dei dati tramite Faker
@@ -33,7 +33,7 @@ class UserDataGenerator:
                     "Cognome": self.fake_data.last_name(),
                     "Email": self.fake_data.email(),
                     "Telefono": self.fake_data.phone_number(),
-                    "Identificativo": ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
+                    "Identificativo": ''.join(str.upper(uuid.uuid4().hex[:5])) # genera codice univoco di 5 cifre 
                 }
                 user_data.append(user)
             return user_data
