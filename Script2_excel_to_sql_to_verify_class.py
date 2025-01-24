@@ -1,5 +1,5 @@
 # INIZIO SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
-# Importa il file di configurazione parametri constants.py
+# Importa il file di configurazione parametri parameters.py
 import Parameters
 
 # Importa le librerie
@@ -22,15 +22,15 @@ class DatabaseManager:
         self.conn = self.crea_connessione_db(db_name)
         self.cursor = self.conn.cursor() if self.conn else None
 
-    def crea_connessione_db(self, db_name):
+    def crea_connessione_db(self, db_name): # crea il file db
         try:
             conn = sqlite3.connect(db_name)
             return conn
         except sqlite3.Error as e:
             print(f"Errore nella connessione al database: {e}")
             return None
-
-    def crea_tabella(self):
+        
+    def crea_tabella(self): # crea la tabella nel db
         try:
             self.cursor.execute('''
             CREATE TABLE canditati (
@@ -45,7 +45,7 @@ class DatabaseManager:
         except sqlite3.Error as e:
             print(f"Errore nella creazione della tabella: {e}")
 
-    def inserisci_dati(self, df):
+    def inserisci_dati(self, df):   # inserisci i dati nella tabella
         try:
             for _, row in df.iterrows():
                 self.cursor.execute('''
@@ -55,7 +55,7 @@ class DatabaseManager:
         except sqlite3.Error as e:
             print(f"Errore nell'inserimento dei dati: {e}")
 
-    def leggi_e_stampa_dati(self):
+    def leggi_e_stampa_dati(self):  # legge i dati dal db e li stampa a video per la verifica
         try:
             self.cursor.execute("SELECT * FROM canditati")
             columns = ['','Nome', 'Cognome', 'Email', 'Telefono', 'Identificativo']

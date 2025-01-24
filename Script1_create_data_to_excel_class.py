@@ -1,5 +1,5 @@
 # INIZIO SEZIONE IMPORTAZIONE LIBRERIE/FILE DI CONFIGURAZIONE
-import Parameters    # Importa il file di configurazione parametri constants.py
+import Parameters    # Importa il file di configurazione parametri parameters.py
 
 # Importa le librerie
 import pandas           # libreria per la gestione dei file excel
@@ -55,7 +55,7 @@ def main():
         # Inizializza l'oggetto UserDataGenerator con la localizzazione
         user_data_generator = UserDataGenerator(Parameters.FAKER_LOCALIZATION)
 
-        # Genera dati casuali per il numero di utenti definito in constants.py
+        # Genera dati casuali per il numero di utenti definito in parameters.py
         user_data = user_data_generator.generate_user_data(Parameters.HOW_MANY_USERS)
 
         # Salva i dati degli utenti in un file Excel
