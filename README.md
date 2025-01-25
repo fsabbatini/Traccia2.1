@@ -68,12 +68,10 @@ Daria	    Tiepolo	  fedelecurci@example.com	     +39 3713683831	CA631
 Severino	 Antonucci	trezzinitorquato@example.com	0123481690	    4AB5D
 Napoleone Zanazzo	  vmuratori@example.net	       +39 3514415443	3C3FC
 Graziano	 Faranda	  gianluigi24@example.net	     35113552547	   8FE9E
+<img width="444" alt="Screenshot 2025-01-25 alle 14 42 36" src="https://github.com/user-attachments/assets/4c2506b8-43ae-4872-8da8-a3079d2bc8e1" />
 
-
-
-Il secondo file da eseguire è `second_script.py`. Questo script cercherà nella stessa cartella un file `people_data.csv` e, se lo troverà, proverà ad inserire tali dati in un database SQLite. In questo secondo script vengono prese diverse misure per verificare la validità dei dati recuperati dal file `people_data.csv` (come, ad esempio, fermare l'esecuzione del codice se il file non esiste, oppure è vuoto, o se i dati non sono formattati correttamente). 
-
-Tali misure sono prese in misura cautelativa, per dimostrare l'importanza di assicurarsi che i dati in ingresso siano sempre puliti, poiché dati errati possono portare alla corruzione del database e a problemi successivi ben più gravi. Le misure di sicurezza aggiunte, essendo questo comunque un aspetto secondario a ciò che richiede la traccia, non sono esaustivi, ma coprono solo le casistiche più comuni.
+Il secondo file da eseguire è `Script2_excel_to_sql_to_verify_class.py`. Questo script cercherà nella stessa cartella un file "elenco_candidati.xlsx" e, se lo troverà, proverà ad inserire tali dati in un database SQLite, dopo averlo creato.
+In questo secondo script vengono prese diverse misure per verificare la validità dei dati recuperati dal file `people_data.csv` (come, ad esempio, fermare l'esecuzione del codice se il file non esiste, oppure è vuoto, o se i dati non sono formattati correttamente). 
 
 Se i due script `first_script.py` e `second_script.py` sono stati eseguiti in successione, nella stessa cartella dovrebbero ora trovarsi due ulteriori file `people_data.csv` e `people_data.db`. 
 
