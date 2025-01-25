@@ -11,7 +11,7 @@ Il progetto, relativamente alla parte tecnica, richiede lo sviluppo di due scrip
 - Il primo script deve generare dati casuali per 10 persone (nome, cognome, e-mail, numero di telefono), salvando tali dati in un file di tipo Excel
 - Il secondo script deve recuperare i dati dal file Excel creato dallo script precedente e creare un database, utilizzando il linguaggio SQL, con relativa tabella,  ed inserire i dati così recuperati al suo interno, assicurandosi, tramite stampa a video, che i dati contenuti nel file Excel e la tabella del database corrispondano
   
-NB: ai requisiti sono state effettuate le seguenti implementazioni:
+NB: agli obiettivi base del progetto sono state effettuate le seguenti implementazioni:
 - Campo "idenditificativo" univoco
 - File "Parameters.py" per la configurazione di base di entrambi gli script realizzati
 
@@ -20,16 +20,13 @@ NB: ai requisiti sono state effettuate le seguenti implementazioni:
 Per il corretto funzionamento degli script, è necessario installare i seguenti software:
 - interprete Python (può essere scaricato per tutti i comuni sistemi operativi dal sito ufficiale: https://www.python.org/downloads/)
 - modulo Faker (https://github.com/joke2k/faker)
-- da terminale, spostarsi in una cartella a proprio piacimento ed eseguire il seguente comando:
-> git clone https://github.com/Juuzen/unipegaso-thesis.git
+- da terminale, spostarsi in una cartella a scelta per scaricare i file di progetto, contenuti nella cartella Traccia2.1, tramite il seguente comando:
+> git clone https://github.com/fsabbatini/Traccia2.1
+In alternativa al comando git clone, è possibile scaricare l'intero progetto in formato .zip, ed estrarlo una volta completato il download. Per far ciò, è necessario cliccare sul tasto "Code" in alto, e nel menu che si apre selezionare "Download zip".
 
-In alternativa, è possibile scaricare l'intero progetto in formato .zip, ed estrarlo una volta completato il download. Per far ciò, è necessario cliccare sul tasto "Code" in alto, e nel menu che si apre selezionare "Download zip".
+## Installazione Faker
 
-
-
-Dopo aver installato con successo Python (qualora non fosse presente sul proprio PC), è necessario installare Faker (https://github.com/joke2k/faker).
-
-Faker è un package Python di generazione casuale di dati, semplice da utilizzare e da configurare. E' stata scelta per questo progetto perché permette una localizzazione dei dati e la selezione tra un ampio range di dati disponibili, coprendo ampiamente le richieste da soddisfare.
+Faker è un package Python per la generazione casuale di dati, semplice da utilizzare e da configurare. E' stata scelta per questo progetto perché permette una localizzazione dei dati e la selezione tra un ampio range di dati disponibili, coprendo ampiamente i requisiti richiesti dal progetto.
 
 Per installarlo, basta aprire il terminale ed eseguire il seguente comando:
 > pip install faker
@@ -39,20 +36,40 @@ Clonare o scaricare questo progetto è condizione sufficiente per poter eseguire
 
 ## Esecuzione
 
-Per poter eseguire correttamente gli scripts, aprire il terminale del proprio OS di riferimento, e spostarsi all'interno della cartella clonata di questo progetto, contenente tutti i file necessari.
+Per poter eseguire correttamente gli scripts, aprire il terminale del proprio SO di riferimento, e spostarsi all'interno della cartella clonata di questo progetto, contenente tutti i file necessari.
 
-Dopodiché, eseguire il comando:
-> python ./<NOME_SCRIPT>.py
+Dopodiché, andranno eseguiti gli script tramite il comando generico:
+> python3 <NOME_SCRIPT>.py
+Nel caso si ricevesse un errore relativamente al comando verificare che il path del comando pyhton3 sia corrispondente
 
 All'interno della cartella è possibile trovare:
-- `README.md` (ciò che si sta visualizzando in questo momento)
-- `consts.py`
-- `first_script.py`
-- `second_script.py`
+- `README.md` (il presente file)
+- `parameters.py`
+- `Script1_create_data_to_excel_class.py`
+- `Script2_excel_to_sql_to_verify_class.py`
 
-Il file `consts.py` contiene semplicemente dati e variabili condivise dagli altri file, anche eseguendo tale script non si otterrà nessun risultato, per cui verrà ignorato da questo momento in avanti.
+Il file `paramaters.py` contiene solo variabili di configurazione utili agli Script
 
-Il primo file da eseguire è `first_script.py`. Questo script creerà un file denominato `people_data.csv` contenente i dati degli utenti.
+Il comando per eseguire il primo script è:
+> python3 Script1_create_data_to_excel_class.py
+che come output, se non ci sono stati errori, produrrà il seguente messaggio:
+- "File Excel "elenco_canditati.xlsx" creato con successo, eseguire lo script successivo".
+In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script.
+A questo punto la cartella di sistema dal quale si è lanciato lo script conterrà il nuovo file Excel file "elenco_candidati.xlsx", vedere esempio:
+
+Nome	     Cognome	  Email	                       Telefono	      Identificativo
+Vittorio	 Gualtieri	arsenioiannuzzi@example.org	 0813871149	    A0D2E
+Tonino    Palladio	 ebova@example.org	           +39 0544039728	14975
+Nico	     Foletti	  annibale59@example.org	      +39 042992907	 D400B
+Biagio	   Abba	     isabellafagiani@example.net	 +39 042184477	 6258C
+Biagio	   Visconti	 bbova@example.net	           377629460	     ECBF5
+Daniele	  Monicelli	nicolettamannoia@example.org	+39 3534117616	9E9FD
+Daria	    Tiepolo	  fedelecurci@example.com	     +39 3713683831	CA631
+Severino	 Antonucci	trezzinitorquato@example.com	0123481690	    4AB5D
+Napoleone Zanazzo	  vmuratori@example.net	       +39 3514415443	3C3FC
+Graziano	 Faranda	  gianluigi24@example.net	     35113552547	   8FE9E
+
+
 
 Il secondo file da eseguire è `second_script.py`. Questo script cercherà nella stessa cartella un file `people_data.csv` e, se lo troverà, proverà ad inserire tali dati in un database SQLite. In questo secondo script vengono prese diverse misure per verificare la validità dei dati recuperati dal file `people_data.csv` (come, ad esempio, fermare l'esecuzione del codice se il file non esiste, oppure è vuoto, o se i dati non sono formattati correttamente). 
 
