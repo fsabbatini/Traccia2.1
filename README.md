@@ -43,38 +43,32 @@ Dopodiché, andranno eseguiti gli script tramite il comando generico:
 Nel caso si ricevesse un errore relativamente al comando verificare che il path del comando pyhton3 sia corrispondente
 
 All'interno della cartella è possibile trovare:
-- `README.md` (il presente file)
-- `parameters.py`
-- `Script1_create_data_to_excel_class.py`
-- `Script2_excel_to_sql_to_verify_class.py`
+- "README.md" (il presente file)
+- "parameters.py"
+- "Script1_create_data_to_excel_class.py"
+- "Script2_excel_to_sql_to_verify_class.py"
 
-Il file `paramaters.py` contiene solo variabili di configurazione utili agli Script
+Il file "paramaters.py" contiene solo variabili di configurazione utili agli script principali
 
 Il comando per eseguire il primo script è:
 > python3 Script1_create_data_to_excel_class.py
 che come output, se non ci sono stati errori, produrrà il seguente messaggio:
 - "File Excel "elenco_canditati.xlsx" creato con successo, eseguire lo script successivo".
 In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script.
-A questo punto la cartella di sistema dal quale si è lanciato lo script conterrà il nuovo file Excel file "elenco_candidati.xlsx", vedere esempio:
+A questo punto la cartella di sistema dal quale si è lanciato lo script conterrà il nuovo file Excel file "elenco_candidati.xlsx", come sotto:
+<img width="444" alt="Screenshot 2025-01-25 alle 14 45 00" src="https://github.com/user-attachments/assets/3cb7dd2e-4341-4fe3-a40b-34ac3ad31986" />
 
-Nome	     Cognome	  Email	                       Telefono	      Identificativo
-Vittorio	 Gualtieri	arsenioiannuzzi@example.org	 0813871149	    A0D2E
-Tonino    Palladio	 ebova@example.org	           +39 0544039728	14975
-Nico	     Foletti	  annibale59@example.org	      +39 042992907	 D400B
-Biagio	   Abba	     isabellafagiani@example.net	 +39 042184477	 6258C
-Biagio	   Visconti	 bbova@example.net	           377629460	     ECBF5
-Daniele	  Monicelli	nicolettamannoia@example.org	+39 3534117616	9E9FD
-Daria	    Tiepolo	  fedelecurci@example.com	     +39 3713683831	CA631
-Severino	 Antonucci	trezzinitorquato@example.com	0123481690	    4AB5D
-Napoleone Zanazzo	  vmuratori@example.net	       +39 3514415443	3C3FC
-Graziano	 Faranda	  gianluigi24@example.net	     35113552547	   8FE9E
-<img width="444" alt="Screenshot 2025-01-25 alle 14 42 36" src="https://github.com/user-attachments/assets/4c2506b8-43ae-4872-8da8-a3079d2bc8e1" />
 
-Il secondo file da eseguire è `Script2_excel_to_sql_to_verify_class.py`. Questo script cercherà nella stessa cartella un file "elenco_candidati.xlsx" e, se lo troverà, proverà ad inserire tali dati in un database SQLite, dopo averlo creato.
-In questo secondo script vengono prese diverse misure per verificare la validità dei dati recuperati dal file `people_data.csv` (come, ad esempio, fermare l'esecuzione del codice se il file non esiste, oppure è vuoto, o se i dati non sono formattati correttamente). 
 
-Se i due script `first_script.py` e `second_script.py` sono stati eseguiti in successione, nella stessa cartella dovrebbero ora trovarsi due ulteriori file `people_data.csv` e `people_data.db`. 
+Il secondo file da eseguire è "Script2_excel_to_sql_to_verify_class.py" con il comando:
+> python3 Script2_excel_to_sql_to_verify_class.py
+Questo script leggerà i dati dal file "elenco_candidati.xlsx" e inserirà tali dati in un database SQLite, denominato "canditati.db", dopo averlo creato.
 
-I dati all'interno del database possono essere letti con un qualsiasi programma di gestione DB (come, ad esempio DBeaver).
+Se i due script sono stati eseguiti in successione, nella stessa cartella dovrebbero ora trovarsi due ulteriori file "elenco_candidati.xlsx" e "canditati.db". 
 
-Lo script `second_script.py` una volta creata la tabella 'people' (se non presente) ed aver inserito i dati recuperati dal file `people_data.csv` (dopo aver eliminato i precedenti), effettua un check di validazione tra i dati contenuti in `people_data.csv` e quelli in `people_data.db`. Il confronto tra i dati viene effettuato dopo aver ordinato le relative righe di entrambi i file in modo che il confronto sia position-insensitive. Ottenuto tale risultato, esso viene mostrato all'interno del terminale.
+In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script, altrimenti verranno stampati a video i dati del file Excel e quelli presenti nel database, formattati allo stesso modo, per facilitare un veloce confronto degli stessi, come sotto:
+<img width="713" alt="Screenshot 2025-01-25 alle 14 57 51" src="https://github.com/user-attachments/assets/9cc87a38-142a-48ac-b2c4-2c69680ef7fc" />
+
+
+
+I dati all'interno del database possono essere letti con un qualsiasi programma di gestione DB (come, ad esempio DBbrowser SQLite scaricabile dal sito https://sqlitebrowser.org
