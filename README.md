@@ -4,8 +4,9 @@
 
 ## Introduzione
 
-Repository contenente gli elaborati in merito alla Tesi del Corso di Laurea L-31 "Informatica per le Aziende Digitali".
+Repository contenente gli elaborati in merito al project work finale del Corso di Laurea L-31 "Informatica per le Aziende Digitali".
 La traccia scelta è la 2.1: "Ruolo della privacy e sull'importanza del GDPR".
+Titolo dell'elaborato: "Gestione candidati per commissione concorso pubblico"
 
 Il progetto, relativamente alla parte tecnica, richiede lo sviluppo di due script Python con i seguenti obiettivi:
 - Il primo script deve generare dati casuali per 10 utenti (nome, cognome, e-mail, numero di telefono), salvando tali dati in un file di tipo Excel
