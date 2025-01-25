@@ -48,27 +48,38 @@ All'interno della cartella è possibile trovare:
 - "Script1_create_data_to_excel_class.py"
 - "Script2_excel_to_sql_to_verify_class.py"
 
-Il file "paramaters.py" contiene solo variabili di configurazione utili agli script principali
 
 Il comando per eseguire il primo script è:
 > python3 Script1_create_data_to_excel_class.py
 che come output, se non ci sono stati errori, produrrà il seguente messaggio:
 - "File Excel "elenco_canditati.xlsx" creato con successo, eseguire lo script successivo".
 In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script.
-A questo punto la cartella di sistema dal quale si è lanciato lo script conterrà il nuovo file Excel file "elenco_candidati.xlsx", come sotto:
+A questo punto la cartella di sistema dal quale si è lanciato lo script conterrà il nuovo file Excel file "elenco_candidati.xlsx", come nell'esempio seguente:
+
 <img width="444" alt="Screenshot 2025-01-25 alle 14 45 00" src="https://github.com/user-attachments/assets/3cb7dd2e-4341-4fe3-a40b-34ac3ad31986" />
 
 
 
 Il secondo file da eseguire è "Script2_excel_to_sql_to_verify_class.py" con il comando:
 > python3 Script2_excel_to_sql_to_verify_class.py
-Questo script leggerà i dati dal file "elenco_candidati.xlsx" e inserirà tali dati in un database SQLite, denominato "canditati.db", dopo averlo creato.
+Questo script leggerà i dati dal file "elenco_candidati.xlsx" e inserirà tali dati nella tabella "canditati" del database SQLite, denominato "canditati.db", dopo averlo creato.
 
 Se i due script sono stati eseguiti in successione, nella stessa cartella dovrebbero ora trovarsi due ulteriori file "elenco_candidati.xlsx" e "canditati.db". 
 
-In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script, altrimenti verranno stampati a video i dati del file Excel e quelli presenti nel database, formattati allo stesso modo, per facilitare un veloce confronto degli stessi, come sotto:
+In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script, altrimenti verranno stampati a video i dati del file Excel e quelli presenti nel database, formattati allo stesso modo, per facilitare un veloce confronto degli stessi, come nell'esempio seguente:
+
 <img width="713" alt="Screenshot 2025-01-25 alle 14 57 51" src="https://github.com/user-attachments/assets/9cc87a38-142a-48ac-b2c4-2c69680ef7fc" />
 
-
-
 I dati all'interno del database possono essere letti con un qualsiasi programma di gestione DB (come, ad esempio DBbrowser SQLite scaricabile dal sito https://sqlitebrowser.org
+
+## Parametrizzazione tramite file "parameters.py"
+Il file "parameters.py" contiene alcune varibili configurabili per modificare alcuni parametri di comportamento degli script principali, in particolare:
+
+EXCEL_FILE_NAME = 'elenco_canditati.xlsx'   # nome del file excel dove salvare i dati degli utenti creati casualmente
+
+DB_FILE_NAME = 'canditati.db'   # nome del file database dove salvare i dati degli utenti letti dal file excel
+
+FAKER_LOCALIZATION = 'it_IT'    # localizzazione dei dati generati dal modulo Faker
+
+HOW_MANY_USERS = 10 # numero di utenti casuali che devono essere creati 
+
