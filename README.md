@@ -8,7 +8,7 @@ Repository contenente gli elaborati in merito alla Tesi del Corso di Laurea L-31
 La traccia scelta è la 2.1: "Ruolo della privacy e sull'importanza del GDPR".
 
 Il progetto, relativamente alla parte tecnica, richiede lo sviluppo di due script Python con i seguenti obiettivi:
-- Il primo script deve generare dati casuali per 10 persone (nome, cognome, e-mail, numero di telefono), salvando tali dati in un file di tipo Excel
+- Il primo script deve generare dati casuali per 10 utenti (nome, cognome, e-mail, numero di telefono), salvando tali dati in un file di tipo Excel
 - Il secondo script deve recuperare i dati dal file Excel creato dallo script precedente e creare un database, utilizzando il linguaggio SQL, con relativa tabella,  ed inserire i dati così recuperati al suo interno, assicurandosi, tramite stampa a video, che i dati contenuti nel file Excel e la tabella del database corrispondano
   
 NB: agli obiettivi base del progetto sono state effettuate le seguenti implementazioni:
