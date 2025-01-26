@@ -33,7 +33,8 @@ class UserDataGenerator:
                     "Cognome": self.fake_data.last_name(),
                     "Email": self.fake_data.email(),
                     "Telefono": self.fake_data.phone_number(),
-                    "Identificativo": ''.join(str.upper(uuid.uuid4().hex[:5])) # genera codice univoco di 5 cifre 
+                    "Identificativo": ''.join(str.upper(uuid.uuid4().hex[:5])) # genera codice univoco di 5 cifre per pesudonimizzazione
+                    
                 }
                 user_data.append(user)
             return user_data
