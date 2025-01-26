@@ -57,7 +57,7 @@ che come output, se non ci sono stati errori, produrrà il seguente messaggio:
 In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script.
 A questo punto la cartella di sistema dal quale si è lanciato lo script conterrà il nuovo file Excel file "elenco_candidati.xlsx", come nell'esempio seguente:
 
-<img width="444" alt="Screenshot 2025-01-25 alle 14 45 00" src="https://github.com/user-attachments/assets/3cb7dd2e-4341-4fe3-a40b-34ac3ad31986" />
+<img width="445" alt="Screenshot 2025-01-26 alle 10 27 35" src="https://github.com/user-attachments/assets/b2956cab-8599-41e7-8d3a-d1d324b10c18" />
 
 
 
@@ -69,7 +69,8 @@ Se i due script sono stati eseguiti in successione, nella stessa cartella dovreb
 
 In caso di errori verrà stampato il messaggio di errore corrispondente al punto di interruzione dello script, altrimenti verranno stampati a video i dati del file Excel e quelli presenti nel database, formattati allo stesso modo, per facilitare un veloce confronto degli stessi, come nell'esempio seguente:
 
-<img width="713" alt="Screenshot 2025-01-25 alle 14 57 51" src="https://github.com/user-attachments/assets/9cc87a38-142a-48ac-b2c4-2c69680ef7fc" />
+<img width="614" alt="Screenshot 2025-01-26 alle 10 32 38" src="https://github.com/user-attachments/assets/911fdb41-0af8-44e9-aa40-4367ccb8c33a" />
+
 
 I dati all'interno del database possono essere letti con un qualsiasi programma di gestione DB (come, ad esempio DBbrowser SQLite scaricabile dal sito https://sqlitebrowser.org
 
